@@ -166,11 +166,12 @@ try:
         st.latex(Reaction(reaction).latex)
 
         st.write("""##### Given: """)
-        mol_substance =  st.selectbox("Given substance:", tuple(reaction_substance_list), key="mole_to_mole_substance")
-        mol_amount = st.number_input('Amount of given substance in moles:', value=1.00, key="mole_to_mole_amount")
+        mol_substance =  st.selectbox("Given substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="mole_to_mole_substance")
+
+        mol_amount = st.number_input('Amount of given substance in moles:', value=1.000, format='%g', key="mole_to_mole_amount")
 
         st.write("""##### Required: """)
-        determine_substance_mol = st.selectbox("Find the amount the mole of this substance:", tuple(reaction_substance_list), key="mole_to_mole_required")
+        determine_substance_mol = st.selectbox("Find the amount the mole of this substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="mole_to_mole_required")
 
         if mol_substance == determine_substance_mol:
             st.error('Substance in Given must NOT BE EQUAL to Substance in Required. ')
@@ -180,7 +181,7 @@ try:
             _Using the given equation, **determine how many moles of {determine_substance_mol}** would be formed from **{mol_amount} mole of {mol_substance}**_?
             ''')
 
-            mole_to_mole_answer = round(mole_to_mole(reaction_substance_mole_dict, mol_amount, mol_substance, determine_substance_mol),3)
+            mole_to_mole_answer = round(mole_to_mole(reaction_substance_mole_dict, mol_amount, mol_substance.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789")), determine_substance_mol.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789"))),5)
             st.write(f'''
             ##### Answer:
             ### {mole_to_mole_answer} mol {determine_substance_mol}
@@ -192,11 +193,11 @@ try:
         st.latex(Reaction(reaction).latex)
 
         st.write("""##### Given: """)
-        mass_substance =  st.selectbox("Given substance:", tuple(reaction_substance_list), key="mass_to_mass_substance")
-        mass_amount = st.number_input('Amount of given substance in grams:', value=1.000, key="mass_to_mass_amount")
+        mass_substance =  st.selectbox("Given substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="mass_to_mass_substance")
+        mass_amount = st.number_input('Amount of given substance in grams:', value=1.000, format='%g',key="mass_to_mass_amount")
 
         st.write("""##### Required: """)
-        determine_substance_mass = st.selectbox("Find the mass of this substance:", tuple(reaction_substance_list), key="mass_to_mass_required")
+        determine_substance_mass = st.selectbox("Find the mass of this substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="mass_to_mass_required")
 
         if mass_substance == determine_substance_mass:
             st.error('Substance in Given must NOT BE EQUAL to Substance in Required. ')
@@ -206,7 +207,7 @@ try:
             _Using the given equation, **determine how many grams of {determine_substance_mass}** would be formed from **{mass_amount} grams of {mass_substance}**_?
             ''')
 
-            mass_to_mass_answer = round(mass_to_mass(reaction_substance_mole_dict, reaction_substance_molar_mass_dict, mass_amount, mass_substance, determine_substance_mass),3)
+            mass_to_mass_answer = round(mass_to_mass(reaction_substance_mole_dict, reaction_substance_molar_mass_dict, mass_amount, mass_substance.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789")), determine_substance_mass.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789"))),5)
             
             st.write(f'''
             ##### Answer:
@@ -219,18 +220,18 @@ try:
         st.latex(Reaction(reaction).latex)
 
         st.write("""##### Given: """)
-        mass_substance =  st.selectbox("Given substance:", tuple(reaction_substance_list), key="mass_to_mole_substance")
-        mass_amount = st.number_input('Amount of given substance in grams:', value=1.000, key="mass_to_mole_amount")
+        mass_substance =  st.selectbox("Given substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="mass_to_mole_substance")
+        mass_amount = st.number_input('Amount of given substance in grams:', value=1.000, format='%g', key="mass_to_mole_amount")
 
         st.write("""##### Required: """)
-        determine_substance_mole = st.selectbox("Find the amount of mole of this substance:", tuple(reaction_substance_list), key="mass_to_mole_required")
+        determine_substance_mole = st.selectbox("Find the amount of mole of this substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="mass_to_mole_required")
     
         st.write(f'''
         ##### Problem:
         _Using the given equation, **determine how many mole of {determine_substance_mole}** would be formed from **{mass_amount} grams of {mass_substance}**_?
         ''')
 
-        mass_to_mole_answer = round(mass_to_mole(reaction_substance_mole_dict, reaction_substance_molar_mass_dict, mass_amount, mass_substance, determine_substance_mole),3)
+        mass_to_mole_answer = round(mass_to_mole(reaction_substance_mole_dict, reaction_substance_molar_mass_dict, mass_amount, mass_substance.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789")), determine_substance_mole.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789"))),5)
         
         st.write(f'''
         ##### Answer:
@@ -243,18 +244,18 @@ try:
         st.latex(Reaction(reaction).latex)
 
         st.write("""##### Given: """)
-        mol_substance =  st.selectbox("Given substance:", tuple(reaction_substance_list), key="mole_to_mass_substance")
-        mol_amount = st.number_input('Amount of given substance in moles:', value=1.000, key="mole_to_mass_amount")
+        mol_substance =  st.selectbox("Given substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="mole_to_mass_substance")
+        mol_amount = st.number_input('Amount of given substance in moles:', value=1.000, format='%g', key="mole_to_mass_amount")
 
         st.write("""##### Required: """)
-        determine_substance_mass = st.selectbox("Find the mass of this substance:", tuple(reaction_substance_list), key="mole_to_mass_required")
+        determine_substance_mass = st.selectbox("Find the mass of this substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="mole_to_mass_required")
     
         st.write(f'''
         ##### Problem:
         _Using the given equation, **determine how many grams of {determine_substance_mass}** would be formed from **{mol_amount} moles of {mol_substance}**_?
         ''')
 
-        mole_to_mass_answer = round(mole_to_mass(reaction_substance_mole_dict, reaction_substance_molar_mass_dict, mol_amount, mol_substance, determine_substance_mass),3)
+        mole_to_mass_answer = round(mole_to_mass(reaction_substance_mole_dict, reaction_substance_molar_mass_dict, mol_amount, mol_substance.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789")), determine_substance_mass.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789"))),5)
         
         st.write(f'''
         ##### Answer:
@@ -268,18 +269,18 @@ try:
         st.latex(Reaction(reaction).latex)
 
         st.write("""##### Given: """)
-        mol_substance =  st.selectbox("Given substance:", tuple(reaction_substance_list), key="mole_to_nop_substance")
-        mol_amount = st.number_input('Amount of given substance in moles:', value=1.000, key="mole_to_nop_amount")
+        mol_substance =  st.selectbox("Given substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="mole_to_nop_substance")
+        mol_amount = st.number_input('Amount of given substance in moles:', value=1.000, format='%g',key="mole_to_nop_amount")
 
         st.write("""##### Required: """)
-        determine_substance_nop = st.selectbox("Find the number of particles of this substance:", tuple(reaction_substance_list), key="mole_to_nop_required")
+        determine_substance_nop = st.selectbox("Find the number of particles of this substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="mole_to_nop_required")
     
         st.write(f'''
         ##### Problem:
         _Using the given equation, **determine how many particles of {determine_substance_nop}** would be formed from **{mol_amount} moles of {mol_substance}**_?
         ''')
 
-        mole_to_nop_answer = mole_to_number_of_particles(reaction_substance_mole_dict, mol_amount, mol_substance, determine_substance_nop)
+        mole_to_nop_answer = mole_to_number_of_particles(reaction_substance_mole_dict, mol_amount, mol_substance.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789")), determine_substance_nop.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789")))
         formatted_mole_to_nop_answer = format(mole_to_nop_answer, '.4g')
 
         st.write(f'''
@@ -294,18 +295,18 @@ try:
         st.latex(Reaction(reaction).latex)
 
         st.write("""##### Given: """)
-        nop_substance =  st.selectbox("Given substance:", tuple(reaction_substance_list), key="nop_to_mol_substance")
-        nop_amount = st.number_input('Amount of given substance in atoms or molecules:', value=6.022e+23, key="nop_to_mol_amount")
+        nop_substance =  st.selectbox("Given substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="nop_to_mol_substance")
+        nop_amount = st.number_input('Amount of given substance in atoms or molecules:', value=6.022e+23, format='%g',key="nop_to_mol_amount")
 
         st.write("""##### Required: """)
-        determine_substance_mole = st.selectbox("Find the amount of mole of this substance:", tuple(reaction_substance_list), key="nop_to_mol_required")
+        determine_substance_mole = st.selectbox("Find the amount of mole of this substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="nop_to_mol_required")
     
         st.write(f'''
         ##### Problem:
         _Using the given equation, **determine how many moles of {determine_substance_mole}** would be formed from **{nop_amount} particles of {nop_substance}**_?
         ''')
 
-        nop_to_mole_answer = round(number_of_particles_to_mole(reaction_substance_mole_dict, nop_amount, nop_substance, determine_substance_mole),3)
+        nop_to_mole_answer = round(number_of_particles_to_mole(reaction_substance_mole_dict, nop_amount, nop_substance.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789")), determine_substance_mole.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789"))),5)
 
         st.write(f'''
         ##### Answer:
@@ -319,18 +320,18 @@ try:
         st.latex(Reaction(reaction).latex)
 
         st.write("""##### Given: """)
-        mass_substance =  st.selectbox("Given substance:", tuple(reaction_substance_list), key="mass_to_nop_substance")
-        mass_amount = st.number_input('Amount of mass in grams:', value=1.000, key="mass_to_nop_amount")
+        mass_substance =  st.selectbox("Given substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="mass_to_nop_substance")
+        mass_amount = st.number_input('Amount of mass in grams:', value=1.000, format='%g', key="mass_to_nop_amount")
 
         st.write("""##### Required: """)
-        determine_substance_nop = st.selectbox("Find the the number of particles of this substance:", tuple(reaction_substance_list), key="mass_to_nop_required")
+        determine_substance_nop = st.selectbox("Find the the number of particles of this substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="mass_to_nop_required")
     
         st.write(f'''
         ##### Problem:
         _Using the given equation, **determine how many molecules of {determine_substance_nop}** would be formed from **{mass_amount} grams of {mass_substance}**_?
         ''')
 
-        mass_to_nop_answer = mass_to_number_of_particles(reaction_substance_mole_dict, reaction_substance_molar_mass_dict, mass_amount, mass_substance, determine_substance_nop)
+        mass_to_nop_answer = mass_to_number_of_particles(reaction_substance_mole_dict, reaction_substance_molar_mass_dict, mass_amount, mass_substance.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789")), determine_substance_nop.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789")))
         formatted_mass_to_nop_answer = format(mass_to_nop_answer, '.4g')
 
         st.write(f'''
@@ -345,18 +346,18 @@ try:
         st.latex(Reaction(reaction).latex)
 
         st.write("""##### Given: """)
-        nop_substance =  st.selectbox("Given substance:", tuple(reaction_substance_list), key="nop_to_mass_substance")
-        nop_amount = st.number_input('Amount of given substance in atoms or molecules:', value=6.022e+23, key="nop_to_mass__amount")
+        nop_substance =  st.selectbox("Given substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="nop_to_mass_substance")
+        nop_amount = st.number_input('Amount of given substance in atoms or molecules:', value=6.022e+23, format='%g',key="nop_to_mass__amount")
 
         st.write("""##### Required: """)
-        determine_substance_mass = st.selectbox("Find the mass of this substance:", tuple(reaction_substance_list), key="nop_to_mass__required")
+        determine_substance_mass = st.selectbox("Find the mass of this substance:", tuple([substance.translate(str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")) for substance in reaction_substance_list]), key="nop_to_mass__required")
     
         st.write(f'''
         ##### Problem:
         _Using the given equation, **determine how many grams of {determine_substance_mass}** would be formed from **{nop_amount} molecules of {nop_substance}**_?
         ''')
 
-        nop_to_mass_answer = round(number_of_particles_to_mass(reaction_substance_mole_dict, reaction_substance_molar_mass_dict, nop_amount, nop_substance, determine_substance_mass),3)
+        nop_to_mass_answer = round(number_of_particles_to_mass(reaction_substance_mole_dict, reaction_substance_molar_mass_dict, nop_amount, nop_substance.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789")), determine_substance_mass.translate(str.maketrans("₀₁₂₃₄₅₆₇₈₉","0123456789"))),5)
 
         st.write(f'''
         ##### Answer:
@@ -384,3 +385,5 @@ with personal_col:
     st.caption("Twitter: https://twitter.com/jpcodesss_")
 
 
+
+    
