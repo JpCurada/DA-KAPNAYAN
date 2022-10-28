@@ -1,3 +1,4 @@
+from distutils.log import error
 from pyvalem.formula import Formula
 from pyvalem.reaction import Reaction, ReactionParseError
 import molmass as mm
@@ -110,24 +111,45 @@ st.caption("Stoichiometry is a tough subject for many pupils. The traditional a
 # st.sidebar.success("S-KAPNAYAN")
 st.markdown('---')
 st.subheader("Chemical Equation")
+st.write("_*This input bar is case-sensitive. You should put a space in every element and you must only use this arrow('→') to separate reactants and products. If the input is not a BALANCED CHEMICAL EQUATION and the FORMAT is NOT RIGHT, the program will not work.*_")
 reaction = st.text_input('Input a Balanced Chemical Equation:')
 
-st.caption("This input bar is case-sensitive. You should put a space in every element and you must only use this arrow('→') to separate reactants and products.")
 
-with st.expander("Try these examples!"):
+
+# ₀₁₂₃₄₅₆₇₈₉
+
+with st.expander("REFER TO THESE EXAMPLES"):
     st.write("""
-    ##### You can try this balanced chemical equations ^_^
-    Just copy and paste it to the input bar.
+    ##### Choose a balanced chemical reaction and  copy-paste it to the input bar.
     1. 6CO2 + 6H2O → C6H12O6 + 6O2
+    This is equivalent to: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ 
+
     2. SiCl4 + 4H2O → H4SiO4 + 4HCl
+    This is equivalent to: SiCl₄ + 4H₂O → H₄SiO₄ + 4HCl
+    
     3. 2Al + 6HCl → 2AlCl3 + 3H2
+    This is equivalent to: 2Al + 6HCl → 2AlCl₃ + 3H₂
+
     4. Na2CO3 + 2HCl → 2NaCl + H2O + CO2
+    This is equivalent to: Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂
+
     5. 2C7H6O2 + 15O2 → 14CO2 + 6H2O
+    This is equivalent to: 2C₇H₆O₂ + 15O₂ → 14CO₂ + 6H₂O
+
     6. 2Ca3(PO4)2 + 6SiO2 → P4O10 + 6CaSiO3
+    This is equivalent to: 2Ca₃(PO₄)₂ + 6SiO₂ → P₄O₁₀ + 6CaSiO₃
+
     7. Al2(SO4)3 + 3Ca(OH)2 → 2Al(OH)3 + 3CaSO4
+    This is equivalent to: Al₂(SO₄)₃ + 3Ca(OH)₂ → 2Al(oH)₃ + 3CaSO₄
+
     8. H2SO4 + 8HI → H2S + 4I2 + 4H2O
+    This is equivalent to: H₂SO₄ + 8HI → H₂S + 4I₂ + 4H₂O
+
     9. 2Fe2O3 + 3C → 4Fe + 3CO2
+    This is equivalent to: 2Fe₂O₃ + 3C → 4Fe + 3CO₂
+
     10. C6H5OH + 7O2 → 6CO2 + 3H2O
+    This is equivalent to: C₆H₅OH + 7O₂ → 6CO₂ + 3H₂O
     """)
 
 try:
@@ -366,6 +388,8 @@ try:
         ''')
 
 except ReactionParseError:
+    st.subheader('How to balance a chemical equation?')
+    st.video('https://www.youtube.com/watch?v=iUARzSxcKzk')
     pass
 
 st.markdown('---')
