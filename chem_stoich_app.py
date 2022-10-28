@@ -398,15 +398,16 @@ personal_col, reference_col = st.columns(2)
 
 with personal_col:
     st.subheader('About the Creator')
+    st.caption("For feedbacks, suggestions, bugs, and inquiries, message me at: ")
+    st.caption("Email: j.curada02@gmail.com")
+    st.caption("Twitter: https://twitter.com/jpcodesss_")
     st.write("""###### This Web application is under development and will have more features soon!""")
     st.caption('"_Exploring Python modules and maximizing the potential of Streamlit._"')
     st.caption("_— John Paul M. Curada | Python and Data Science Enthusiast_")
 
-    st.write("**Contacts:**")
+
     
-    st.caption("For feedbacks, suggestions, bugs, and inquiries, message me at: ")
-    st.caption("Email: j.curada02@gmail.com")
-    st.caption("Twitter: https://twitter.com/jpcodesss_")
+
 
 
 
