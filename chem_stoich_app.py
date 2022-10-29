@@ -13,7 +13,12 @@ st.set_page_config(
     page_icon=logo,
     layout="wide",
     initial_sidebar_state="expanded",
-)
+    menu_items={
+        'DM for Inquiries': 'https://twitter.com/jpcodesss',
+        'Report a bug': "https://twitter.com/jpcodesss",
+        'About': "# DA-KAPNAYAN. DA-KAPNAYAN aims to make learning solving Stoichiometry problems with Dimensional Analysis easy!"
+    }
+    
 hide_streamlit_style = """
             <style>
             footer {visibility: hidden;}
