@@ -12,6 +12,13 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
 def is_balanced_or_not(reactants_total_molar_mass, products_total_molar_mass):
     if round(reactants_total_molar_mass,2)  == round(products_total_molar_mass,2) :
         return f"It is a BALANCED chemical equation since the mass of reactants is EQUAL to the mass of products.", f"{round(reactants_total_molar_mass,2)}g = {round(products_total_molar_mass,2)}g"
