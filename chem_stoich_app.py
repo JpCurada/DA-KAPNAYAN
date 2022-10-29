@@ -9,7 +9,7 @@ from PIL import Image
 logo = Image.open('dakapnayan_logo.png')
 
 st.set_page_config(
-    page_title="KAPNAYAN",
+    page_title="DA-KAPNAYAN",
     page_icon=logo,
     layout="wide",
     initial_sidebar_state="expanded",
