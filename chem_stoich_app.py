@@ -129,7 +129,7 @@ def change_e_to_x10(nop_answer):
 st.title('DA-KAPNAYAN')
 st.write("""###### A web application for solving problems involving Stoichiometry with Dimensional Analysis (DA)""")
 st.caption("Stoichiometry is a tough subject for many pupils. The traditional approach of linking chemical quantities in a reaction via dimensional analysis includes a number of phases in which students struggle to determine which conversion factor to develop and how to apply it.")
-st.write('''###### This web application, DA-KAPNAYAN, made those processes easy. The answer will be easily calculated WITH SOLUTIONS by just inputting the balanced chemical equation, the given, and the required. This web application has following features, computing for the mole-to-mole conversion, mass-to-mass conversion, mole-to-mass conversion conversely, mass-to-molecules conversion conversely, and mass-to-molecules conversion conversely.''')
+st.caption('''This web application, DA-KAPNAYAN, made those processes easy. The answer will be easily calculated WITH SOLUTIONS by just inputting the balanced chemical equation, the given, and the required. This web application has following features, computing for the mole-to-mole conversion, mass-to-mass conversion, mole-to-mass conversion conversely, mass-to-molecules conversion conversely, and mass-to-molecules conversion conversely.''')
 st.caption('DA-KAPNAYAN aims to make learning solving Stoichiometry problems with Dimensional Analysis easy!')
 
 # st.sidebar.success("S-KAPNAYAN")
@@ -139,7 +139,7 @@ st.caption("This input bar is CASE-SENSITIVE. You should put a space in EVERY SU
 
 reaction = st.text_input('Input a BALANCED CHEMICAL EQUATION OR CHEMICAL REACTION:')
 
-st.caption('After you input and enter a balanced chemical equation, all features will show. You can use the examples below as guide for the proper format for inputting a chemical reaction.')
+st.write('###### After you input and enter a balanced chemical equation, all features will show. You can use the examples below as guide for the proper format for inputting a chemical reaction.')
 
 with st.expander("REFER TO THESE EXAMPLES"):
     st.subheader('Choose a balanced chemical reaction and  copy-paste it to the input bar')
