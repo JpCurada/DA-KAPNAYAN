@@ -14,10 +14,11 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
-        'DM for Inquiries': 'https://twitter.com/jpcodesss',
+        'Get help': 'https://twitter.com/jpcodesss',
         'Report a bug': "https://twitter.com/jpcodesss",
         'About': "# DA-KAPNAYAN. DA-KAPNAYAN aims to make learning solving Stoichiometry problems with Dimensional Analysis easy!"
     }
+)
     
 hide_streamlit_style = """
             <style>
@@ -452,8 +453,6 @@ except ReactionParseError:
 
     st.subheader('How to balance a chemical equation?')
     st.write('_*Inputting a Balanced Chemical Equation is very crucial for this web application to work. To learn how to balanced a Chemical Equation, check out this [link](https://www.youtube.com/watch?v=iUARzSxcKzk).*_ ')
-
-
     pass
 
 st.markdown('---')
