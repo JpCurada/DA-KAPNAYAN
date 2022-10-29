@@ -5,13 +5,15 @@ import molmass as mm
 import streamlit as st
 import numpy as np
 
+from PIL import Image
+logo = Image.open('dakapnayan_logo.png')
+
 st.set_page_config(
-    page_title="DA-KAPNAYAN",
-    page_icon="	:thermometer:",
+    page_title="KAPNAYAN",
+    page_icon=logo,
     layout="wide",
     initial_sidebar_state="expanded",
 )
-
 hide_menu_style = """
         <style>
         #MainMenu {visibility: hidden;}
