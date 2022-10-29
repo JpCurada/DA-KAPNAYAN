@@ -6,7 +6,7 @@ import streamlit as st
 import numpy as np
 
 st.set_page_config(
-    page_title="KAPNAYAN",
+    page_title="DA-KAPNAYAN",
     page_icon="	:thermometer:",
     layout="wide",
     initial_sidebar_state="expanded",
