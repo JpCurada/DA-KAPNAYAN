@@ -171,9 +171,7 @@ with st.expander("REFER TO THESE EXAMPLES"):
 
     st.write('10. This is equivalent to: C₆H₅OH + 7O₂ → 6CO₂ + 3H₂O')
     st.code('C6H5OH + 7O2 → 6CO2 + 3H2O')
-
-
-
+    
 try:
     st.latex(Reaction(reaction).latex)
 
