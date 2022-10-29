@@ -14,12 +14,13 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
-hide_menu_style = """
-        <style>
-        #MainMenu {visibility: hidden;}
-        </style>
-        """
-st.markdown(hide_menu_style, unsafe_allow_html=True)
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 def is_balanced_or_not(reactants_total_molar_mass, products_total_molar_mass):
     if round(reactants_total_molar_mass,2)  == round(products_total_molar_mass,2) :
