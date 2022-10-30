@@ -16,7 +16,7 @@ st.set_page_config(
     menu_items={
         'Get help': 'https://twitter.com/jpcodesss',
         'Report a bug': "https://twitter.com/jpcodesss",
-        'About': "# DA-KAPNAYAN. DA-KAPNAYAN aims to make learning solving Stoichiometry problems with Dimensional Analysis easy!"
+        'About': "# DA-KAPNAYAN. ##### DA-KAPNAYAN aims to make learning solving Stoichiometry problems with Dimensional Analysis easy!"
     }
 )
 
