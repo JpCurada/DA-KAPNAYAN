@@ -485,11 +485,11 @@ try:
         ''')
 
 except ReactionParseError:
-
     st.subheader('How to balance a chemical equation?')
     st.write('_*Inputting a Balanced Chemical Equation is very crucial for this web application to work. To learn how to balanced a Chemical Equation, check out this [link](https://www.youtube.com/watch?v=iUARzSxcKzk).*_ ')
     
     st.markdown('---')
+    
     personal_col, reference_col = st.columns(2)
     with personal_col:
         st.subheader('About the Creator')
@@ -498,8 +498,7 @@ except ReactionParseError:
         st.caption("Twitter: https://twitter.com/jpcodesss")
         st.write("""###### This Web application is under development and will have more features soon!""")
         st.caption('"_Exploring Python modules and maximizing the potential of Streamlit._"')
-        st.caption("_— John Paul M. Curada | Python and Data Science Enthusiast_")
-    
+        st.caption("_— John Paul M. Curada | Python and Data Science Enthusiast_") 
     pass
 
 # st.markdown('---')
