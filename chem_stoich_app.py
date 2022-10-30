@@ -134,6 +134,38 @@ st.caption("Stoichiometry is a tough subject for many pupils. The traditional ap
 st.caption('''This web application, DA-KAPNAYAN, made those processes easy. The answer will be easily calculated WITH SOLUTIONS by just inputting the balanced chemical equation, the given, and the required. This web application has following features, computing for the mole-to-mole conversion, mass-to-mass conversion, mole-to-mass conversion conversely, mass-to-molecules conversion conversely, and mass-to-molecules conversion conversely.''')
 st.caption('DA-KAPNAYAN aims to make learning solving Stoichiometry problems with Dimensional Analysis easy!')
 
+with st.expander("How to use this web application?"):
+    vid1, vid2, vid3 = st.columns(3)
+    with vid1:
+        st.subheader('Changing the theme')
+        st.caption("This is an instructional video for changing the web theme of DA-KAPNAYAN for better visuals. ")
+        st.video('https://www.youtube.com/watch?v=QY7DTqEmDas')
+    with vid2:
+        st.subheader('Using the Input Bar')
+        st.caption("This is an instructional video for copy-pasting the examples to the input bar.") 
+        st.video('https://www.youtube.com/watch?v=EDGP2mYv5GU')
+    with vid3:
+        st.subheader('Typing a Chemical Equation')
+        st.caption("This is an instructional video for typing a balanced chemical equation or reaction into the input bar.")
+        st.video('https://www.youtube.com/watch?v=lYmbCiCEmVM')
+
+    # st.markdown('---DIMENSIONAL ANALYSIS---')
+    vda1, vda2, vda3 = st.columns(3)
+    with vda1:
+        st.subheader('Mole-to-Mole')
+        st.caption("This is an instructional video for using the mole-to-mole conversion of the web application. ")
+        st.video('https://www.youtube.com/watch?v=GoCLInDrH4Y')
+    with vda2:
+        st.subheader('Mass-to-Mass')
+        st.caption("This is an instructional video for using the mass-to-mass conversion of the web application.") 
+        st.video('https://www.youtube.com/watch?v=GjuscIF2Qrs')
+    with vda3:
+        st.subheader('Other Conversion Functions')
+        st.caption("TThis is an instructional video for using the conversion functions for Dimensional Analysis of the web application. ")
+        st.video('https://www.youtube.com/watch?v=f_4HRYROrdM&t=2s')    
+
+
+
 # st.sidebar.success("S-KAPNAYAN")
 st.markdown('---')
 st.subheader("Input Bar")
