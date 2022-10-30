@@ -19,10 +19,12 @@ st.set_page_config(
         'About': "# DA-KAPNAYAN. DA-KAPNAYAN aims to make learning solving Stoichiometry problems with Dimensional Analysis easy!"
     }
 )
-    
+
+# Hide hamburger: #MainMenu {visibility: hidden;}
+
 hide_streamlit_style = """
             <style>
-            #MainMenu {visibility: hidden;}
+            
             footer {visibility: hidden;}
             </style>
             """
