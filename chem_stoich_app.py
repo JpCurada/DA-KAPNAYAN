@@ -135,19 +135,23 @@ st.caption('''This web application, DA-KAPNAYAN, made those processes easy. The 
 st.caption('DA-KAPNAYAN aims to make learning solving Stoichiometry problems with Dimensional Analysis easy!')
 
 with st.expander("How to use this web application?"):
-    vid1, vid2, vid3 = st.columns(3)
-    with vid1:
-        st.subheader('Changing the theme')
-        st.caption("This is an instructional video for changing the web theme of DA-KAPNAYAN for better visuals. ")
-        st.video('https://www.youtube.com/watch?v=QY7DTqEmDas')
-    with vid2:
-        st.subheader('Using the Input Bar')
-        st.caption("This is an instructional video for copy-pasting the examples to the input bar.") 
-        st.video('https://www.youtube.com/watch?v=EDGP2mYv5GU')
-    with vid3:
-        st.subheader('Typing a Chemical Equation')
-        st.caption("This is an instructional video for typing a balanced chemical equation or reaction into the input bar.")
-        st.video('https://www.youtube.com/watch?v=lYmbCiCEmVM')
+    
+    st.subheader('Guide Instructions')
+    st.caption("This is an instructional video for using DA-KAPNAYAN ")
+    st.video('https://www.youtube.com/watch?v=JlSoqbVzwhc')
+#     vid1, vid2, vid3 = st.columns(3)
+#     with vid1:
+#         st.subheader('Changing the theme')
+#         st.caption("This is an instructional video for changing the web theme of DA-KAPNAYAN for better visuals. ")
+#         st.video('https://www.youtube.com/watch?v=QY7DTqEmDas')
+#     with vid2:
+#         st.subheader('Using the Input Bar')
+#         st.caption("This is an instructional video for copy-pasting the examples to the input bar.") 
+#         st.video('https://www.youtube.com/watch?v=EDGP2mYv5GU')
+#     with vid3:
+#         st.subheader('Typing a Chemical Equation')
+#         st.caption("This is an instructional video for typing a balanced chemical equation or reaction into the input bar.")
+#         st.video('https://www.youtube.com/watch?v=lYmbCiCEmVM')
 
     # st.markdown('---DIMENSIONAL ANALYSIS---')
     vda1, vda2, vda3 = st.columns(3)
@@ -161,7 +165,7 @@ with st.expander("How to use this web application?"):
         st.video('https://www.youtube.com/watch?v=GjuscIF2Qrs')
     with vda3:
         st.subheader('Other Conversion Functions')
-        st.caption("TThis is an instructional video for using the conversion functions for Dimensional Analysis of the web application. ")
+        st.caption("This is an instructional video for using the conversion functions for Dimensional Analysis of the web application. ")
         st.video('https://www.youtube.com/watch?v=f_4HRYROrdM&t=2s')    
 
 
