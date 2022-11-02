@@ -1,6 +1,5 @@
 from pyvalem.formula import Formula
 from pyvalem.reaction import Reaction, ReactionParseError
-import molmass as mm
 
 import streamlit as st
 import numpy as np
@@ -29,6 +28,34 @@ hide_streamlit_style = """
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
+acs_stable_elements_mass_dict = {'H':1.008, 'Li':6.94, 'Na':22.99, 'K':39.10,'Rb':85.47, 'Cs':132.9, 
+                          'Be':9.012, 'Mg': 24.31, 'Ca':40.08, 'Sr':87.62, 'Ba':137.3,
+                          'Sc':44.96, 'Y':88.91,
+                          'Ti':47.88, 'Zr':91.22, 'Hf':178.5,
+                          'V':50.94, 'Nb':92.91, 'Ta':180.9,
+                          'Cr':52.00, 'Mo':95.96, 'W':183.9,
+                          'Mn':54.94, 'Re':186.2,
+                          'Fe':55.85, 'Ru':101.1, 'Os':190.2,
+                          'Co':58.93, 'Rh':102.9, 'Ir':192.2,
+                          'Ni':58.69, 'Pd':106.4, 'Pt':195.1,
+                          'Cu':63.55, 'Ag':107.9, 'Au':197,
+                          'Zn':65.39, 'Cd':112.4, 'Hg':200.5,
+                          'Ce':140.1, 'Pr':140.9, 'Nd':144.2, 'Sm':150.4, 'Eu':152.0, 'Gd':157.2, 'Tb':158.9, 'Dy':162.5, 'Ho':164.9, 'Er':167.3, 'Tm':168.9, 'Yb':173, 'Lu':175,
+                          'Th':232, 'Pa':231, 'U':238, 
+                          'He' :4.003, 'Ne' :20.18,  'Ar' :39.95, 'Kr' :83.79,  'Xe' :131.3,
+                          'F' :19.00, 'Cl' : 35.45, 'Br' :79.90, 'I' :126.9,
+                          'O': 16, 'S' :32.06, 'Se' :78.96, 'Te' :127.6,
+                          'N' :14.01, 'P' :30.97, 'As' :74.92, 'Sb' :121.8, 'Bi' :209.0,
+                          'C' :12.01, 'Si' :28.09, 'Ge' :72.64, 'Sn' :118.7, 'Pb' :207.2,
+                          'B' :10.81, 'Al' :26.98, 'Ga' :69.72, 'In' :114.8, 'Tl' : 204.38            
+}
+
+def get_molar_mass(compound):
+    ele_mol_dict = Formula(compound).atom_stoich
+    sum_list = [acs_stable_elements_mass_dict[ele] * ele_mol_dict[ele] for ele in ele_mol_dict.keys()]
+    molar_mass = sum(sum_list)
+    return molar_mass
 
 def is_balanced_or_not(reactants_total_molar_mass, products_total_molar_mass):
     if round(reactants_total_molar_mass,2)  == round(products_total_molar_mass,2) :
@@ -60,7 +87,7 @@ def reactants_of_reaction(reaction):
     mole_per_reactant_list = list(r_reac.values())
     
     # Create a list for molar mass per reactant
-    reactants_molar_mass_list = [mm.Formula(compound).mass for compound in reactants_list]
+    reactants_molar_mass_list = [get_molar_mass(compound) for compound in reactants_list]
     
     # Total molar mass of reactants
     reactants_total_molar_mass = sum(np.array(reactants_molar_mass_list) * np.array(mole_per_reactant_list)) 
@@ -79,7 +106,7 @@ def products_of_reaction(reaction):
     mole_per_product_list = list(r_prod.values())
     
     # Create a list for molar mass per product
-    products_molar_mass_list = [mm.Formula(compound).mass for compound in products_list]
+    products_molar_mass_list = [get_molar_mass(compound) for compound in products_list]
     
     # Total molar mass of products
     products_total_molar_mass = sum(np.array(products_molar_mass_list) * np.array(mole_per_product_list)) 
